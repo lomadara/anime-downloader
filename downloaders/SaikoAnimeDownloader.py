@@ -55,12 +55,15 @@ class SaikoAnimeDownloader(AnimeDownloaderInterface):
         raise NotFoundError("Episodes url not found")
     
     def create_folder(self, anime_title):
-        if not os.path.exists('./assistindo/{}'.format(anime_title)):
-            os.mkdir('./assistindo/{}'.format(anime_title))
+        if not os.path.exists('{}'.format(Constants.download_folder)):
+            os.mkdir('{}'.format(Constants.download_folder))
+        
+        if not os.path.exists('{}/{}'.format(Constants.download_folder, anime_title)):
+            os.mkdir('{}/{}'.format(Constants.download_folder, anime_title))
     
     def download_cover(self, anime_title, cover_url) -> None:
         cover_response = requests.get(cover_url)
-        with open("./assistindo/{}/{}".format(anime_title, "cover.jpg"), 'wb') as file:
+        with open("{}/{}/{}".format(Constants.download_folder, anime_title, "cover.jpg"), 'wb') as file:
             for data in cover_response.iter_content(Constants.block_size):
                 file.write(data)
     
@@ -101,11 +104,11 @@ class SaikoAnimeDownloader(AnimeDownloaderInterface):
         headers = Constants.saiko_headers
         headers['Referer'] = headers['Referer'].format(episode_id, anime_id)
         
-        if not os.path.exists("./assistindo/{}/{}".format(anime_title, episode_name)):
+        if not os.path.exists("{}/{}/{}".format(Constants.download_folder, anime_title, episode_name)):
             video_response = requests.get(Constants.saiko_episode_download_url.format(episode_id, anime_id),headers= headers, stream=True)
             total_length_in_bytes = 0
 
-            with open("./assistindo/{}/{}".format(anime_title, episode_name), 'wb') as file:
+            with open("{}/{}/{}".format(Constants.download_folder, anime_title, episode_name), 'wb') as file:
                 while True:
                     for data in video_response.iter_content(Constants.block_size):
                         file.write(data)

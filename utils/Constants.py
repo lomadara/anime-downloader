@@ -34,15 +34,15 @@ season_animes = [
     # 'https://saikoanimes.net/anime/shuumatsu-no-harem/',
     # 'https://saikoanimes.net/anime/cue/',
     # 'https://saikoanimes.net/anime/dolls-frontline/',
-    # 'https://saikoanimes.net/anime/slow-loop/',
+    'https://saikoanimes.net/anime/slow-loop/'
     # 'https://saikoanimes.net/anime/platinum-end/',
     # 'https://saikoanimes.net/anime/ousama-ranking-dublado/',
     # 'https://saikoanimes.net/anime/tokyo-24-ku/',
     # 'https://saikoanimes.net/anime/leadale-no-daichi-nite/',
     # 'https://saikoanimes.net/anime/orient/',
     # 'https://saikoanimes.net/anime/kimetsu-no-yaiba-yuukaku-hen/'
-    'https://saikoanimes.net/anime/boruto-naruto-next-generations/',
-    'https://saikoanimes.net/anime/shingeki-no-kyojin-the-final-season/'
+    # 'https://saikoanimes.net/anime/boruto-naruto-next-generations/',
+    # 'https://saikoanimes.net/anime/shingeki-no-kyojin-the-final-season/'
 ]
 
 regex_remove_special_characters = '[^A-Za-z0-9]'
@@ -56,3 +56,5 @@ vision_cover_xpath = '//*[@id="ani_detail"]/div/div/div[2]/div[1]/div/img'
 vision_sonopse_xpath = '//*[@id="ani_detail"]/div/div/div[2]/div[2]/div[5]/div/text()'
 
 vision_tags_xpath = '//*[@id="ani_detail"]/div/div/div[2]/div[3]/div[1]/div[9]/a/text()'
+
+download_folder = './downloads'
